@@ -6,9 +6,10 @@ wide open. a paradigmatic approach to programming is key to avoiding dogma
 and choosing the right tool for the job.
 
 this repository contains code that implements a relational language in node,
-based on a post by @jcolgan, http://codon.com/hello-declarative-world.
+based on a post by [@jcoglan][2], http://codon.com/hello-declarative-world.
 
-it's true that @jlcogan has [already implemented this in ES6][1], but i'd like to
+it's true that [@jcoglan][2] has [already implemented this in ES6][1], but i'd like to
 do it myself to learn more.
 
 [1]: https://github.com/jcoglan/kanrens/tree/master/es6
+[2]: https://github.com/jcoglan
