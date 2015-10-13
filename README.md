@@ -11,4 +11,4 @@ based on a post by @jcolgan, http://codon.com/hello-declarative-world.
 it's true that @jlcogan has [already implemented this in ES6][1], but i'd like to
 do it myself to learn more.
 
-[1: https://github.com/jcoglan/kanrens/tree/master/es6]
+[1]: https://github.com/jcoglan/kanrens/tree/master/es6
