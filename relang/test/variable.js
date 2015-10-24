@@ -8,10 +8,14 @@ describe('Variable', function(){
       var x = new Variable("x");
       x.should.equal(x);
     });
-    it('should not be equal to another Variable', function(){
+    it('should not be equal to another Variable with a different name', function(){
       var x = new Variable("x");
       var y = new Variable("y");
       x.should.not.equal(y);
+    });
+    it('should not be equal to another Variable with the same name', function(){
+      var x = new Variable("x");
+      x.should.not.equal(new Variable("x"));
     })
   });
 });
