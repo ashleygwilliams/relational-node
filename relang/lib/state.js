@@ -1,6 +1,7 @@
 const Variable = require('./variable');
+const merge = require('object-merge');
 
-class State {
+export default class State {
   constructor(variables = [], values = {}){
     this.variables = variables;
     this.values = values;
@@ -16,6 +17,11 @@ class State {
             , new_vars 
             ];
   }
+
+  assign_values(new_vals) {
+    var vals = merge(this.values, new_vals);
+    return new State(this.variables, vals);
+  }
+
 }
 
-export default State;

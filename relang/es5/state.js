@@ -9,6 +9,7 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var Variable = require('./variable');
+var merge = require('object-merge');
 
 var State = (function () {
   function State() {
@@ -29,6 +30,12 @@ var State = (function () {
       });
 
       return [new State(this.variables.concat(new_vars), this.values), new_vars];
+    }
+  }, {
+    key: 'assign_values',
+    value: function assign_values(new_vals) {
+      var vals = merge(this.values, new_vals);
+      return new State(this.variables, vals);
     }
   }]);
 

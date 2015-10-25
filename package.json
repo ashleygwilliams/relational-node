@@ -9,7 +9,9 @@
     "url": "http://ashleygwilliams.github.io"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "object-merge": "^2.5.1"
+  },
   "devDependencies": {
     "babel": "^5.8.23",
     "chai": "^3.3.0",
