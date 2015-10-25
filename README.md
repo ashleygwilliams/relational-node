@@ -1,6 +1,8 @@
 # relational-node
 > a relational language implemented in node
 
+[![travis badge](https://travis-ci.org/ashleygwilliams/relational-node.svg)](https://travis-ci.org/ashleygwilliams/relational-node)
+
 when i learned about programming paradigms, my engineering world burst
 wide open. a paradigmatic approach to programming is key to avoiding dogma
 and choosing the right tool for the job.
