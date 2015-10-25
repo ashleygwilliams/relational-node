@@ -23,5 +23,15 @@ export default class State {
     return new State(this.variables, vals);
   }
 
+  value_of(variable) {
+    var val_vars = Object.keys(this.values);
+    if (variable.name != 'undefined' && val_vars.indexOf(variable.name) !== -1) {
+      var val = this.values[variable.name]
+      return this.value_of(val)
+    } else {
+      return variable;
+    }
+  }
+
 }
 
