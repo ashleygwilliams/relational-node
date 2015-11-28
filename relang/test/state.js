@@ -13,6 +13,8 @@ describe('State', function(){
   var variables = result[1];
   var newNewState = newState.create_variables(["a"])[0];
   var a = newNewState.variables[3];
+  var new_vals = { x: y, y: z, z: 5 };
+  var valState = newNewState.assign_values(new_vals);
   it('should create a new object w/variables attr as an empty array', function(){
     state.should.have.property('variables');
     state.variables.should.be.an.Array;
@@ -51,8 +53,6 @@ describe('State', function(){
     });
   });
   describe('#assign_values', function(){
-    var new_vals = { x: y, y: z, z: 5 };
-    var valState = newNewState.assign_values(new_vals);
     it('should return a new state', function(){
       valState.should.exist;
       valState.should.be.an.object;
@@ -69,5 +69,13 @@ describe('State', function(){
       var newValState = valState.assign_values({a: "ashley"});
       Object.keys(newValState.values).should.have.members(['x','y','z', 'a']);
     });
-  })
+  });
+  describe('#value_of', function(){
+    it('when given a number it should return the value of a number', function() {
+      valState.value_of(5).should.equal(5);
+    });
+    it('when given a variable it should return the value of that variable', function() {
+      valState.value_of(z).should.equal(5);
+    });
+  });
 });
