@@ -19,6 +19,6 @@
   },
   "scripts": {
     "build": "babel ./relang/lib --out-dir ./relang/es5",
-    "test": "mocha ./relang/test"
+    "test": "npm run build && mocha ./relang/test"
   }
 }
