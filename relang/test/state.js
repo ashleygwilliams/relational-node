@@ -1,73 +1,70 @@
 const assert = require('assert');
 const chai = require('chai').should();
+
 const Variable = require('../es5/variable');
 const State = require('../es5/state');
+const states = require('./fixtures/states');
+
+var x = states.variables.x;
+var y = states.variables.y;
+var z = states.variables.z;
+var a = states.variables.a;
 
 describe('State', function(){
-  var state = new State();
-  var result = state.create_variables(["x", "y", "z"]);
-  var newState = result[0];
-  var x = newState.variables[0];
-  var y = newState.variables[1];
-  var z = newState.variables[2];
-  var variables = result[1];
-  var newNewState = newState.create_variables(["a"])[0];
-  var a = newNewState.variables[3];
-  var new_vals = { x: y, y: z, z: 5 };
-  var valState = newNewState.assign_values(new_vals);
   it('should create a new object w/variables attr as an empty array', function(){
-    state.should.have.property('variables');
-    state.variables.should.be.an.Array;
-    state.variables.should.be.empty;
+    states.new.should.have.property('variables');
+    states.new.variables.should.be.an.Array;
+    states.new.variables.should.be.empty;
   });
   it('should create a new object w/values attr as an empty object', function(){
-    state.should.have.property('values');
-    state.values.should.be.an.Object;
-    state.values.should.be.empty;
+    states.new.should.have.property('values');
+    states.new.values.should.be.an.Object;
+    states.new.values.should.be.empty;
   });
   describe('#create_variables', function(){
-    it('should return a new State and an array of variables', function() {
-      result[0].should.exist;
-      result[0].should.be.an.Object;
-      result[0].should.be.an.instanceof(State);
-      result[0].should.not.equal(state);
-      result[1].should.exist;
-      result[1].should.be.an.Array;
+    it('should return a new State', function() {
+      states.second.should.exist;
+      states.second.should.be.an.Object;
+      states.second.should.be.an.instanceof(State);
+      states.second.should.not.equal(states.new);
+    });
+    it('should return an Array of variables', function() {
+      states.second.variables.should.exist;
+      states.second.variables.should.be.an.Array;
     });
     it('the new state should hold the passed variables', function(){
-      newState.variables.should.include.members([x, y, z]);
+      states.second.variables.should.include.members([x, y, z]);
     });
     it('the passed variables should become new variable objects', function(){
-      var newVar = newState.variables[0];
-      newVar.should.exist;
-      newVar.should.be.an.Object;
-      newVar.should.be.an.instanceof(Variable);
+      var passed_var = states.second.variables[0];
+      passed_var.should.exist;
+      passed_var.should.be.an.Object;
+      passed_var.should.be.an.instanceof(Variable);
     });
     it('the returned variables array should contain variable objects of passed variables', function(){
-      variables.should.be.an.Array;
-      variables.should.include.members([x, y, z]);
-      variables[0].should.be.an.instanceof(Variable);
+      states.third.variables.should.be.an.Array;
+      states.third.variables.should.include.members([x, y, z]);
+      states.third.variables[0].should.be.an.instanceof(Variable);
     });
     it('should not remove previous variables', function(){
-      newNewState.variables.should.have.members([x, y, z, a]);
+      states.third.variables.should.have.members([x, y, z, a]);
     });
   });
   describe('#assign_values', function(){
     it('should return a new state', function(){
-      valState.should.exist;
-      valState.should.be.an.object;
-      valState.should.be.an.instanceof(State);
-      valState.should.not.equal(newState);
+      states.fourth.should.exist;
+      states.fourth.should.be.an.object;
+      states.fourth.should.be.an.instanceof(State);
+      states.fourth.should.not.equal(states.third);
     });
     it('the values object should reflect the new value assignments', function(){
-      Object.keys(valState.values).should.have.members(['x', 'y', 'z']);
-      valState.values.x.name.should.equal('y');
-      valState.values.y.name.should.equal('z');
-      valState.values.z.should.equal(5);
+      Object.keys(states.fourth.values).should.have.members(['x', 'y', 'z']);
+      states.fourth.values.x.name.should.equal('y');
+      states.fourth.values.y.name.should.equal('z');
+      states.fourth.values.z.should.equal(5);
     });
     it('the values object should have values from previous state', function(){
-      var newValState = valState.assign_values({a: "ashley"});
-      Object.keys(newValState.values).should.have.members(['x','y','z', 'a']);
+      Object.keys(states.fifth.values).should.have.members(['x','y','z', 'a']);
     });
   });
   describe('#value_of', function(){
