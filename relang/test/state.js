@@ -69,10 +69,10 @@ describe('State', function(){
   });
   describe('#value_of', function(){
     it('when given a number it should return the value of a number', function() {
-      valState.value_of(5).should.equal(5);
+      states.fifth.value_of(5).should.equal(5);
     });
     it('when given a variable it should return the value of that variable', function() {
-      valState.value_of(z).should.equal(5);
+      states.fifth.value_of(z).should.equal(5);
     });
   });
 });
