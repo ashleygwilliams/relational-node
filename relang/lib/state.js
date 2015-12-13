@@ -27,10 +27,26 @@ export default class State {
     var val_vars = Object.keys(this.values);
     if (variable.name != 'undefined' && val_vars.indexOf(variable.name) !== -1) {
       var val = this.values[variable.name]
-      return this.value_of(val)
+      return this.value_of(val);
     } else {
       return variable;
     }
+  }
+
+  unify(a, b) {
+    var a = this.value_of(a);
+    var b = this.value_of(b);
+    var result = null;  
+  
+    if(a === b) {
+      result = this;
+    } else if (a instanceof Variable) {
+      result = this.assign_values({a: b});
+    } else if (b instanceof Variable) {
+      result = this.assign_values({b: a});
+    }
+
+    return result;
   }
 
 }

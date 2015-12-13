@@ -48,6 +48,23 @@ var State = (function () {
         return variable;
       }
     }
+  }, {
+    key: 'unify',
+    value: function unify(a, b) {
+      var a = this.value_of(a);
+      var b = this.value_of(b);
+      var result = null;
+
+      if (a === b) {
+        result = this;
+      } else if (a instanceof Variable) {
+        result = this.assign_values({ a: b });
+      } else if (b instanceof Variable) {
+        result = this.assign_values({ b: a });
+      }
+
+      return result;
+    }
   }]);
 
   return State;
