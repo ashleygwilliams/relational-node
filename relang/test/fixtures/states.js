@@ -24,12 +24,20 @@ var state4 = state3.assign_values(new_vals);
 // has a value
 var state5 = state4.assign_values({a: "ashley"});
 
+// state 6: unify values successfully
+var state6 = state5.unify(x, 5);
+
+// state 7: unify values unsuccessfully
+var state7 = state5.unify(y, 6);
+
 module.exports = {
   new: state1,
   second: state2,
   third: state3,
   fourth: state4,
   fifth: state5,
+  sixth: state6,
+  seventh: state7,
   variables: {
     x: x,
     y: y,

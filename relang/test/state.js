@@ -1,5 +1,6 @@
 const assert = require('assert');
 const chai = require('chai').should();
+const expect = require('chai').expect;
 
 const Variable = require('../es5/variable');
 const State = require('../es5/state');
@@ -73,6 +74,14 @@ describe('State', function(){
     });
     it('when given a variable it should return the value of that variable', function() {
       states.fifth.value_of(z).should.equal(5);
+    });
+  });
+  describe('#unify', function() {
+    it('should return a value if assignment can successfully connect 2 values', function(){
+      states.sixth.value_of(x).should.equal(5);
+    });
+    it('should return null if assignment does not successfully connect 2 values', function(){
+      expect(states.seventh).to.be.not.ok;
     });
   });
 });
