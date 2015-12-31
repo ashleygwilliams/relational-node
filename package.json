@@ -1,7 +1,7 @@
 {
   "name": "relang",
   "description": "a relational language implemented in node",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": "https://github.com/ashleygwilliams/relational-node",
   "readme": "https://github.com/ashleygwilliams/relational-node/blob/master/README.md",
   "author": {
