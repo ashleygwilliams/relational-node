@@ -1,4 +1,4 @@
-const Variable = require('../../es5/variable');
+const Variable = require('../../lib/es5/variable');
 
 module.exports = {
   x: new Variable("x"),

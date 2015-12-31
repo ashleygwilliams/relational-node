@@ -2,8 +2,8 @@ const assert = require('assert');
 const chai = require('chai').should();
 const expect = require('chai').expect;
 
-const Variable = require('../es5/variable');
-const State = require('../es5/state');
+const Variable = require('../lib/es5/variable');
+const State = require('../lib/es5/state');
 const states = require('./fixtures/states');
 
 var x = states.variables.x;
