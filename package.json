@@ -1,5 +1,5 @@
 {
-  "name": "relational-node",
+  "name": "relang",
   "description": "a relational language implemented in node",
   "version": "0.1.0",
   "repository": "https://github.com/ashleygwilliams/relational-node",
@@ -18,7 +18,9 @@
     "mocha": "^2.3.3"
   },
   "scripts": {
-    "build": "babel ./relang/lib --out-dir ./relang/es5",
-    "test": "npm run build && mocha ./relang/test"
+    "postinstall": "npm run build",
+    "prepublish": "npm run test",
+    "build": "babel ./lib/es6 --out-dir ./lib/es5",
+    "test": "npm run build && mocha ./test"
   }
 }

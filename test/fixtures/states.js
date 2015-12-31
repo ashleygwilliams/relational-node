@@ -1,4 +1,4 @@
-const State = require('../../es5/state');
+const State = require('../../lib/es5/state');
 
 // new state
 var state1 = new State();
