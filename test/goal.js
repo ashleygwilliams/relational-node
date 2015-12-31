@@ -28,11 +28,6 @@ describe('Goal', function(){
         goal_types.equals.should.be.an.Object;
         goal_types.equals.should.be.an.instanceof(Goal);
       });
-      it('', function() {
-        goals.pursue.should.exist;
-        goals.pursue.should.be.an.Object;
-        goals.pursue.should.be.an.instanceof(Generator);
-      });
     });
   });
 });
